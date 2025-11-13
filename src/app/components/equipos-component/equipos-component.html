@@ -1,6 +1,6 @@
 <div class="container mt-4">
   @if (isLoading()) {
-    <p>Cargando...</p>
+    <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700">
   } @else if (error()) {
     <div class="alert alert-danger">{{ error() }}</div>
   } @else if (datosEquipo(); as datos) {

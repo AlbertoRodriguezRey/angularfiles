@@ -1,1 +1,44 @@
-<p>home-component works!</p>
+<section class="home-hero" role="region" aria-labelledby="homeTitle">
+  <div class="hero-inner">
+    <h1 id="homeTitle" class="neon-title">Portal de Equipos Profesionales</h1>
+    <p class="hero-sub">Explora equipos, consulta plantillas y sube imágenes o documentos rápidamente.</p>
+
+    <div class="hero-cta">
+      <a class="cta-btn" [routerLink]="['/files']" title="Subir archivo">Subir archivo</a>
+      <a class="cta-outline" [routerLink]="['/equipos', 1]" title="Ver equipos">Ver equipos</a>
+    </div>
+  </div>
+</section>
+
+<section class="features" aria-label="Características">
+  <h2 class="section-title">Funciones principales</h2>
+
+  <div class="features-grid">
+    <article class="feature-card">
+      <div class="feature-icon icon-files" aria-hidden="true">📁</div>
+      <h3 class="feature-title">Carga segura</h3>
+      <p class="feature-desc">Sube ficheros en Base64 con validación y control de estado. Compatible con la API del proyecto.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon icon-team" aria-hidden="true">⚽</div>
+      <h3 class="feature-title">Detalles de equipos</h3>
+      <p class="feature-desc">Consulta fichas completas de equipos y plantillas en tarjetas separadas y responsivas.</p>
+    </article>
+
+    <article class="feature-card">
+      <div class="feature-icon icon-responsive" aria-hidden="true">📱</div>
+      <h3 class="feature-title">Diseño responsive</h3>
+      <p class="feature-desc">Interfaz optimizada para escritorio y móvil con scroll y tarjetas adaptables.</p>
+    </article>
+  </div>
+</section>
+
+<section class="news" aria-label="Últimas novedades">
+  <h2 class="section-title small">Últimas novedades</h2>
+  <ul class="news-list">
+    <li class="news-item">Nueva API de archivos integrada — compatibilidad Base64</li>
+    <li class="news-item">Mejoras en el rendimiento y diseño neon del panel</li>
+    <li class="news-item">Filtros y navegación rápida entre equipos</li>
+  </ul>
+</section>
