@@ -1,0 +1,27 @@
+<div>
+  <input 
+    type="file" 
+    #fileInput
+    (change)="onFileSelected($event)"
+    [disabled]="isUploading()"
+    accept="image/*"
+  />
+  
+  @if (selectedFile()) {
+    <p>Fichero seleccionado: {{ selectedFile()?.name }}</p>
+    
+    @if (imagePreview()) {
+      <img [src]="imagePreview()" alt="Preview" style="width: 150px; height: 150px;" />
+    }
+    <br/>
+    <button (click)="uploadFile()" [disabled]="isUploading()">
+      {{ isUploading() ? 'Subiendo...' : 'Subir' }}
+    </button>
+  }
+
+  @if (uploadMessage()) {
+    <p [class]="uploadMessage()?.startsWith('✓') ? 'success' : 'error'">
+      {{ uploadMessage() }}
+    </p>
+  }
+</div>
