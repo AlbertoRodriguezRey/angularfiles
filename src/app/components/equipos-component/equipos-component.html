@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  @if (isLoading()) {
+    <p>Cargando...</p>
+  } @else if (error()) {
+    <div class="alert alert-danger">{{ error() }}</div>
+  } @else if (datosEquipo(); as datos) {
+    @if (datos.equipo) {
+      <div class="row">
+        <!-- Card del Equipo -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ datos.equipo.nombre }}</h5>
+              <p class="card-text">
+                <img [src]="datos.equipo.imagen" alt="{{ datos.equipo.nombre }} Logo" style="width: 100px; height: 100px;" /><br>
+                <strong>Champions:</strong> {{ datos.equipo.champions }}<br>
+                <strong>Finalistas:</strong> {{ datos.equipo.finalistas }}<br>
+                <strong>Descripción:</strong> {{ datos.equipo.descripcion }}<br>
+                <strong>Website:</strong> <a [href]="datos.equipo.website" target="_blank">{{ datos.equipo.website }}</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card de Jugadores -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="mb-0">Jugadores ({{ datos.jugadores.length }})</h5>
+            </div>
+            <div class="card-body">
+              @if (datos.jugadores.length > 0) {
+                <ul class="list-group">
+                  @for (jugador of datos.jugadores; track jugador.idJugador) {
+                    <li class="list-group-item">
+                      <strong>{{ jugador.nombre }}</strong><br>
+                      Imagen: <br/><img [src]="jugador.imagen" alt="{{ jugador.nombre }} Foto" style="width: 75px; height: 100px;" /><br>
+                      Posición: {{ jugador.posicion }}<br>
+                      País: {{ jugador.pais }}<br>
+                      Fecha Nacimiento: {{ jugador.fechaNacimiento }}
+                    </li>
+                  }
+                </ul>
+              } @else {
+                <p>No hay jugadores disponibles</p>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    }
+  } @else {
+    <p>No se encontraron datos</p>
+  }
+</div>

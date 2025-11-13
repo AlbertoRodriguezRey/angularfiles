@@ -1,1 +1,245 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styles - Professional Football Theme with Neon Accents */
+:root {
+  /* Neon colors - stadium lighting inspired */
+  --neon-blue: #00d9ff;
+  --neon-cyan: #00f3ff;
+  --neon-green: #00ff88;
+  --neon-lime: #39ff14;
+  --neon-purple: #9d4edd;
+  --neon-pink: #ff006e;
+  
+  /* Background colors - night stadium atmosphere */
+  --dark-bg: #0d1117;
+  --darker-bg: #010409;
+  --card-bg: rgba(13, 17, 23, 0.95);
+  
+  /* Text colors */
+  --text-primary: #ffffff;
+  --text-secondary: #c9d1d9;
+  --text-muted: #8b949e;
+  
+  /* Accent colors */
+  --accent-primary: var(--neon-blue);
+  --accent-secondary: var(--neon-green);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: radial-gradient(ellipse at top, #0d1117 0%, #010409 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle animated background effect - like stadium lights */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.03) 0%, transparent 50%);
+  animation: stadiumLights 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes stadiumLights {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.5; }
+  50% { transform: translate(10%, 10%) scale(1.1); opacity: 0.8; }
+}
+
+/* Card styles - modern glassmorphism with neon borders */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(0, 217, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 217, 255, 0.1) inset,
+    0 2px 16px rgba(0, 217, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.card:hover::before {
+  left: 100%;
+}
+
+.card:hover {
+  border-color: rgba(0, 217, 255, 0.6);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(0, 217, 255, 0.2) inset,
+    0 4px 24px rgba(0, 217, 255, 0.3);
+  transform: translateY(-4px);
+}
+
+.card-title {
+  color: var(--neon-cyan);
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+.card-body {
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+/* List items - player card style */
+.list-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-group-item {
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.8) 0%, rgba(21, 26, 33, 0.8) 100%);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+  border-left: 3px solid var(--neon-purple);
+  color: var(--text-primary);
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.list-group-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(180deg, var(--neon-purple), var(--neon-pink));
+  transition: width 0.3s ease;
+}
+
+.list-group-item:hover::before {
+  width: 100%;
+  opacity: 0.1;
+}
+
+.list-group-item:hover {
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.15) 0%, rgba(255, 0, 110, 0.1) 100%);
+  border-color: rgba(157, 78, 221, 0.6);
+  box-shadow: 0 4px 16px rgba(157, 78, 221, 0.3);
+  transform: translateX(8px);
+}
+
+/* Alert styles */
+.alert-danger {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1.5px solid rgba(239, 68, 68, 0.4);
+  border-left: 4px solid #ef4444;
+  color: #fca5a5;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+}
+
+/* Image styles */
+img {
+  border: 2px solid rgba(0, 255, 136, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 255, 136, 0.2);
+  transition: all 0.3s ease;
+}
+
+img:hover {
+  border-color: var(--neon-green);
+  box-shadow: 0 8px 24px rgba(0, 255, 136, 0.4);
+  transform: scale(1.02);
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 217, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+button:hover {
+  box-shadow: 0 6px 24px rgba(0, 217, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--darker-bg);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--neon-blue), var(--neon-purple));
+  border-radius: 5px;
+  border: 2px solid var(--darker-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--neon-cyan), var(--neon-pink));
+}

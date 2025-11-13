@@ -12,6 +12,14 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/files']">Subir Archivo</a>
         </li>
+        <li class="nav-item">
+          <select #equipoSelect (change)="onEquipoChange()" [value]="selectedEquipo() || ''">
+            <option value="">Equipos</option>
+            @for (equipo of equipos(); track equipo) {
+              <option [value]="equipo.idEquipo">{{ equipo.nombre }}</option>
+            }
+          </select>
+        </li>
       </ul>
     </div>
   </div>
