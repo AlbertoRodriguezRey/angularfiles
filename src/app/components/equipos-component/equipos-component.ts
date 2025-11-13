@@ -57,3 +57,5 @@ export class EquiposComponent implements OnInit {
     });
   }
 }
+
+//comentario de prueba
